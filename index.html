@@ -4,18 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Santonu Mukherjee | Home</title>
+  <meta name="description" content="Santonu Mukherjee — Digital transformation leader, product & program manager, AI innovator. App development, consultancy, modernization, AI agents." />
+  <meta property="og:title" content="Santonu Mukherjee | Digital Transformation & AI" />
+  <meta property="og:description" content="App development, consultancy, AI & agent development, and legacy modernization services." />
+  <meta property="og:type" content="website" />
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
 <header>
-  <h1>Hello, I’m Santonu Mukherjee</h1>
-  <p>Digital Transformation Leader | Product & Program Manager | AI Innovator</p>
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="projects.html">Projects</a> |
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="header-inner">
+    <h1>Hello, I’m Santonu Mukherjee</h1>
+    <p>Digital Transformation Leader | Product & Program Manager | AI Innovator</p>
+
+    <button id="nav-toggle" aria-expanded="false">Menu</button>
+
+    <nav id="main-nav" class="nav-closed" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <main>
@@ -42,7 +53,20 @@
 </main>
 
 <footer>
-  <p>Contact: iamsantonu@example.com | <a href="https://linkedin.com/in/iamsantonu">LinkedIn</a></p>
+  <p>Contact: iamsantonu@gmail.com | <a href="https://linkedin.com/in/iamsantonu">LinkedIn</a></p>
 </footer>
+<script>
+// Mobile nav toggle
+const navToggle = document.getElementById('nav-toggle');
+const mainNav = document.getElementById('main-nav');
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', ()=>{
+    const open = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!open));
+    mainNav.classList.toggle('nav-open');
+    mainNav.classList.toggle('nav-closed');
+  });
+}
+</script>
 </body>
 </html>

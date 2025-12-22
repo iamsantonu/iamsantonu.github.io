@@ -4,17 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Santonu Mukherjee</title>
+  <meta name="description" content="Contact Santonu Mukherjee for consultancy, app development, AI agents and modernization services." />
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header>
-  <h1>Contact Me</h1>
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="projects.html">Projects</a> |
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="header-inner">
+    <h1>Contact Me</h1>
+    <button id="nav-toggle" aria-expanded="false">Menu</button>
+    <nav id="main-nav" class="nav-closed" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <main>
@@ -22,11 +27,37 @@
     <h2>Get in Touch</h2>
     <p>Email me at: <a href="mailto:iamsantonu@gmail.com">iamsantonu@gmail.com</a></p>
     <p>Connect on LinkedIn: <a href="https://linkedin.com/in/iamsantonu">https://linkedin.com/in/iamsantonu</a></p>
+
+    <h3>Or send a message</h3>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <label for="name">Name</label><br>
+      <input type="text" id="name" name="name" required><br>
+
+      <label for="email">Email</label><br>
+      <input type="email" id="email" name="email" required><br>
+
+      <label for="message">Message</label><br>
+      <textarea id="message" name="message" rows="5" required></textarea><br>
+
+      <button type="submit" class="cta">Send</button>
+    </form>
   </section>
 </main>
 
 <footer>
   <p>&copy; 2025 Santonu Mukherjee</p>
 </footer>
+<script>
+const navToggle = document.getElementById('nav-toggle');
+const mainNav = document.getElementById('main-nav');
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', ()=>{
+    const open = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!open));
+    mainNav.classList.toggle('nav-open');
+    mainNav.classList.toggle('nav-closed');
+  });
+}
+</script>
 </body>
 </html>

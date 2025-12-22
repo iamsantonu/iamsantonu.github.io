@@ -4,8 +4,17 @@ a { text-decoration: none; color: #1a73e8; }
 img { max-width: 100%; height: auto; }
 
 /* Header */
-header { background: #1a73e8; color: white; padding: 50px 20px; text-align: center; }
-header nav a { margin: 0 15px; color: white; font-weight: bold; }
+header { background: #1a73e8; color: white; padding: 30px 20px; }
+.header-inner { max-width: 1100px; margin: 0 auto; text-align: center; position: relative; }
+.header-inner h1 { margin: 0; font-size: 1.8rem; }
+.header-inner p { margin: 6px 0 18px; }
+
+/* Nav */
+#nav-toggle { display: none; position: absolute; right: 16px; top: 16px; background: transparent; color: white; border: 1px solid rgba(255,255,255,0.2); padding: 6px 10px; border-radius: 4px; }
+nav#main-nav { margin-top: 10px; }
+nav#main-nav a { margin: 0 12px; color: white; font-weight: bold; }
+nav#main-nav.nav-closed { display: block; }
+nav#main-nav.nav-open { display: block; }
 
 /* Main sections */
 main { padding: 40px 20px; max-width: 1000px; margin: auto; }
@@ -15,14 +24,27 @@ section { margin-bottom: 50px; }
 h2 { color: #1a73e8; margin-bottom: 20px; }
 
 /* Project Cards */
-.project-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
-.project-card img { border-radius: 4px; }
+.project-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; display: flex; gap: 20px; align-items: center; }
+.project-card img { border-radius: 4px; width: 180px; height: auto; object-fit: cover; }
+
+/* Services */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.service-card { border: 1px solid #eee; padding: 18px; border-radius: 8px; background: #fff; }
+.cta { display: inline-block; background: #ff7a59; color: white; padding: 10px 16px; border-radius: 6px; text-decoration: none; }
 
 /* Footer */
 footer { background: #333; color: white; text-align: center; padding: 20px; }
 
 /* Responsive */
+@media (max-width: 900px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 600px) {
-    header nav { display: block; }
-    header nav a { display: block; margin: 10px 0; }
+    #nav-toggle { display: inline-block; }
+    nav#main-nav { display: none; }
+    nav#main-nav.nav-open { display: block; background: transparent; margin-top: 8px; }
+    nav#main-nav a { display: block; margin: 8px 0; }
+    .project-card { flex-direction: column; align-items: flex-start; }
+    .services-grid { grid-template-columns: 1fr; }
 }

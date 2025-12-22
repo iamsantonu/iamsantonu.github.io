@@ -4,17 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me | Santonu Mukherjee</title>
+  <meta name="description" content="About Santonu Mukherjee — experience, skills and background in digital transformation, product and program management." />
+  <meta property="og:title" content="About — Santonu Mukherjee" />
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header>
-  <h1>About Me</h1>
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="projects.html">Projects</a> |
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="header-inner">
+    <h1>About Me</h1>
+    <button id="nav-toggle" aria-expanded="false">Menu</button>
+    <nav id="main-nav" class="nav-closed" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <main>
@@ -44,5 +50,18 @@
 <footer>
   <p>Contact: iamsantonu@gmail.com | <a href="https://linkedin.com/in/iamsantonu">LinkedIn</a></p>
 </footer>
+</footer>
+<script>
+const navToggle = document.getElementById('nav-toggle');
+const mainNav = document.getElementById('main-nav');
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', ()=>{
+    const open = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!open));
+    mainNav.classList.toggle('nav-open');
+    mainNav.classList.toggle('nav-closed');
+  });
+}
+</script>
 </body>
 </html>

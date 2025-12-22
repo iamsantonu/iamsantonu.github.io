@@ -1,3 +1,21 @@
+# Santonu Mukherjee — Personal Branding Site
+
+Local preview instructions:
+
+1. Open `index.html` in your browser directly (double-click the file) or run a simple HTTP server in the folder for correct relative paths and CORS behavior.
+
+Run a quick Python server (recommended):
+
+```bash
+cd "c:\Users\santo\OneDrive\Documents\iamsantonu.github.io"
+python -m http.server 8000
+# then open http://localhost:8000 in your browser
+```
+
+Notes:
+- The contact form uses Formspree; replace the `your-form-id` in `contact.html` with your Formspree form id.
+- Add project thumbnail images in the `images/` folder with names referenced in the HTML.
+- To publish, push the repo to GitHub and enable GitHub Pages from the repository settings.
 # Santonu Mukherjee — Personal Website
 
 Welcome to my personal website repository. This site is hosted on GitHub Pages and showcases my professional portfolio, experience, and skills.
