@@ -12,9 +12,9 @@ img { max-width: 100%; height: auto; }
 
 /* Nav */
 #nav-toggle { display: none; position: absolute; right: 16px; top: 16px; background: transparent; color: white; border: 1px solid rgba(255,255,255,0.2); padding: 6px 10px; border-radius: 4px; }
-nav#main-nav { margin-top: 10px; }
+nav#main-nav { margin-top: 10px; display: flex; justify-content: center; gap: 12px; align-items: center; }
 nav#main-nav a { margin: 0 12px; color: white; font-weight: bold; }
-nav#main-nav.nav-closed { display: block; }
+nav#main-nav.nav-closed { display: flex; }
 nav#main-nav.nav-open { display: block; }
 /* header accent that follows pointer using CSS variables set by JS */
 .header::before { content: ""; position: absolute; left: 0; right: 0; top: 0; bottom: 0; pointer-events: none; background: radial-gradient(circle at var(--accent-x) var(--accent-y), rgba(255,255,255,0.08), transparent 30%); mix-blend-mode: overlay; transition: opacity 180ms ease; opacity: 0.95; border-radius: 0; }
