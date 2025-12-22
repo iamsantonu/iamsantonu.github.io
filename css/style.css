@@ -4,7 +4,8 @@ a { text-decoration: none; color: #1a73e8; }
 img { max-width: 100%; height: auto; }
 
 /* Header */
-header { background: #1a73e8; color: white; padding: 30px 20px; }
+.header { background: #1a73e8; color: white; padding: 30px 20px; /* base color under the accent */
+    --accent-x: 50%; --accent-y: 50%; }
 .header-inner { max-width: 1100px; margin: 0 auto; text-align: center; position: relative; }
 .header-inner h1 { margin: 0; font-size: 1.8rem; }
 .header-inner p { margin: 6px 0 18px; }
@@ -15,6 +16,8 @@ nav#main-nav { margin-top: 10px; }
 nav#main-nav a { margin: 0 12px; color: white; font-weight: bold; }
 nav#main-nav.nav-closed { display: block; }
 nav#main-nav.nav-open { display: block; }
+/* header accent that follows pointer using CSS variables set by JS */
+.header::before { content: ""; position: absolute; left: 0; right: 0; top: 0; bottom: 0; pointer-events: none; background: radial-gradient(circle at var(--accent-x) var(--accent-y), rgba(255,255,255,0.08), transparent 30%); mix-blend-mode: overlay; transition: opacity 180ms ease; opacity: 0.95; border-radius: 0; }
 
 /* Main sections */
 main { padding: 40px 20px; max-width: 1000px; margin: auto; }
@@ -26,6 +29,16 @@ h2 { color: #1a73e8; margin-bottom: 20px; }
 /* Project Cards */
 .project-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; display: flex; gap: 20px; align-items: center; }
 .project-card img { border-radius: 4px; width: 180px; height: auto; object-fit: cover; }
+
+/* subtle hover lift for cards */
+.project-card, .service-card { transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease; }
+.project-card:hover, .service-card:hover { transform: translateY(-6px); box-shadow: 0 10px 24px rgba(25,25,40,0.08); }
+
+/* animated button hover */
+.cta { position: relative; overflow: hidden; transition: transform 160ms ease, box-shadow 160ms ease; }
+.cta::after { content: ""; position: absolute; left: -40%; top: 0; width: 0; height: 100%; background: rgba(255,255,255,0.08); transform: skewX(-15deg); transition: width 300ms ease; }
+.cta:hover::after { width: 220%; }
+.cta:active { transform: translateY(1px) scale(.995); }
 
 /* Services */
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
